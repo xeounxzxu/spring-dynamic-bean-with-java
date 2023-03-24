@@ -5,7 +5,7 @@ public interface UserCreatedService {
     /**
      * 공통 처리 Method
      */
-    void created();
+    String created();
 
     enum Name {
         SOCIAL("socialUserService"),

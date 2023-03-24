@@ -7,9 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class DefaultUserService implements UserCreatedService {
 
-
     @Override
-    public void created() {
-        log.info("Default User Service");
+    public String created() {
+        return "Default User Service";
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class SocialUserService implements UserCreatedService {
 
     @Override
-    public void created() {
-        log.info("Social User Service");
+    public String created() {
+        return "Social User Service";
     }
 }
