@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class DefaultUserService implements UserCreatedService {
+public class DefaultUserService implements UserService {
 
     @Override
     public String created() {

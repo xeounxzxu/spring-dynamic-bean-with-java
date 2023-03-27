@@ -1,7 +1,7 @@
 package com.example.dynamicbeans.service.factory;
 
 
-import com.example.dynamicbeans.service.UserCreatedService;
+import com.example.dynamicbeans.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.stereotype.Service;
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 public class UserServiceFactory {
     private final BeanFactory beanFactory;
 
-    public String created(UserCreatedService.Name name) {
-        UserCreatedService service = beanFactory.getBean(name.getValue(), UserCreatedService.class);
+    public String created(UserService.Name name) {
+        UserService service = beanFactory.getBean(name.getValue(), UserService.class);
         return service.created();
     }
 

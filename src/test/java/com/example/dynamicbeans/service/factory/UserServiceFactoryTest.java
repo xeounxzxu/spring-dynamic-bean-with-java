@@ -2,7 +2,7 @@ package com.example.dynamicbeans.service.factory;
 
 import com.example.dynamicbeans.service.DefaultUserService;
 import com.example.dynamicbeans.service.SocialUserService;
-import com.example.dynamicbeans.service.UserCreatedService;
+import com.example.dynamicbeans.service.UserService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -31,25 +31,25 @@ class UserServiceFactoryTest {
         @DisplayName("Bean Factory 를 통해서 Name 의 값으로 호출 시 성공적이다. with SocialUserService")
         public void checkedSocialUserService() {
 
-            UserCreatedService userCreatedService = (UserCreatedService) beanFactory.getBean(UserCreatedService.Name.SOCIAL.getValue());
+            UserService userService = (UserService) beanFactory.getBean(UserService.Name.SOCIAL.getValue());
 
-            assertTrue(userCreatedService instanceof SocialUserService);
+            assertTrue(userService instanceof SocialUserService);
         }
 
         @Test
         @DisplayName("Bean Factory 를 통해서 Name 의 값으로 호출 시 성공적이다. with DefaultUserService")
         public void checkedDefaultUserService() {
 
-            UserCreatedService userCreatedService = (UserCreatedService) beanFactory.getBean(UserCreatedService.Name.DEFAULT.getValue());
+            UserService userService = (UserService) beanFactory.getBean(UserService.Name.DEFAULT.getValue());
 
-            assertTrue(userCreatedService instanceof DefaultUserService);
+            assertTrue(userService instanceof DefaultUserService);
         }
 
         @Test
         @DisplayName("UserServiceFactory 에서 Name 값을 Social 를 넘겨주면 성공적이다.")
         public void createdSocial() {
 
-            String value = userServiceFactory.created(UserCreatedService.Name.SOCIAL);
+            String value = userServiceFactory.created(UserService.Name.SOCIAL);
 
             assertEquals("Social User Service", value);
         }
@@ -58,7 +58,7 @@ class UserServiceFactoryTest {
         @DisplayName("UserServiceFactory 에서 Name 값을 Default 를 넘겨주면 성공적이다.")
         public void createdDefault() {
 
-            String value = userServiceFactory.created(UserCreatedService.Name.DEFAULT);
+            String value = userServiceFactory.created(UserService.Name.DEFAULT);
 
             assertEquals("Default User Service", value);
         }

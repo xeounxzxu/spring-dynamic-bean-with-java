@@ -1,6 +1,6 @@
 package com.example.dynamicbeans.service;
 
-public interface UserCreatedService {
+public interface UserService {
 
     /**
      * 공통 처리 Method

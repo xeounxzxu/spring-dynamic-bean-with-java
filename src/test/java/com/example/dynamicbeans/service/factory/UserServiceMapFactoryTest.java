@@ -1,6 +1,6 @@
 package com.example.dynamicbeans.service.factory;
 
-import com.example.dynamicbeans.service.UserCreatedService;
+import com.example.dynamicbeans.service.UserService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -24,7 +24,7 @@ class UserServiceMapFactoryTest {
         @DisplayName("UserServiceFactory 에서 Name 값을 Social 를 넘겨주면 성공적이다.")
         void createdSocial() {
 
-            String value = userServiceMapFactory.created(UserCreatedService.Name.SOCIAL);
+            String value = userServiceMapFactory.created(UserService.Name.SOCIAL);
 
             assertEquals("Social User Service", value);
         }
@@ -34,7 +34,7 @@ class UserServiceMapFactoryTest {
         @DisplayName("UserServiceFactory 에서 Name 값을 Default 를 넘겨주면 성공적이다.")
         public void createdDefault() {
 
-            String value = userServiceMapFactory.created(UserCreatedService.Name.DEFAULT);
+            String value = userServiceMapFactory.created(UserService.Name.DEFAULT);
 
             assertEquals("Default User Service", value);
         }

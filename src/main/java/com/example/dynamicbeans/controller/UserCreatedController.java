@@ -1,6 +1,7 @@
 package com.example.dynamicbeans.controller;
 
-import com.example.dynamicbeans.service.UserCreatedService;
+import com.example.dynamicbeans.service.UserService;
+import com.example.dynamicbeans.service.factory.UserLegacyFactory;
 import com.example.dynamicbeans.service.factory.UserServiceFactory;
 import com.example.dynamicbeans.service.factory.UserServiceMapFactory;
 import lombok.RequiredArgsConstructor;
@@ -18,16 +19,23 @@ public class UserCreatedController {
 
     private final UserServiceMapFactory userServiceMapFactory;
 
+    private final UserLegacyFactory userLegacyFactory;
+
     @GetMapping("beanfactory")
     public String created(@RequestParam(name = "num") Integer num) {
-        UserCreatedService.Name name = num == 1 ? UserCreatedService.Name.DEFAULT : UserCreatedService.Name.SOCIAL;
+        UserService.Name name = num == 1 ? UserService.Name.DEFAULT : UserService.Name.SOCIAL;
         return userServiceFactory.created(name);
     }
 
     @GetMapping("map")
     public String created2(@RequestParam(name = "num") Integer num) {
-        UserCreatedService.Name name = num == 1 ? UserCreatedService.Name.DEFAULT : UserCreatedService.Name.SOCIAL;
+        UserService.Name name = num == 1 ? UserService.Name.DEFAULT : UserService.Name.SOCIAL;
         return userServiceMapFactory.created(name);
     }
 
+    @GetMapping("legacy")
+    public String created3(@RequestParam(name = "num") Integer num) {
+        UserService.Name name = num == 1 ? UserService.Name.DEFAULT : UserService.Name.SOCIAL;
+        return userLegacyFactory.created(name);
+    }
 }
